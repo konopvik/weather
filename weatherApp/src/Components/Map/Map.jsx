@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import axios from "axios";
 import apiKey from "../../utils/key.jsx";
+import styles from "./Map.module.scss"
 
 // Fix Leaflet icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -30,7 +31,10 @@ function Map({markers, setMarkers, setWeatherData}) {
     };
 
     return (
-        <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: "400px", width: "100%" }}>
+        <div className={styles.container}>
+            <h2>Also you can click on the map for selecting place in which you want to know weather forecast</h2>
+            <div className={styles.mapContainer}>
+        <MapContainer center={[51.505, -0.09]} zoom={5} className={styles.map}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -40,6 +44,8 @@ function Map({markers, setMarkers, setWeatherData}) {
             ))}
             <MapEvents />
         </MapContainer>
+            </div>
+        </div>
     );
 }
 
