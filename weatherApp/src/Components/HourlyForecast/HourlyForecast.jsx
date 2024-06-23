@@ -31,7 +31,7 @@ const HourlyForecast = ({hourData}) => {
     return (
         <div className={theme === 'light' ? styles['root-light'] : styles['root-dark']}>
             <div>{hourData[0]}:00</div>
-            <div>{icons[weather.indexOf(hourData[2])]}</div>
+            <div className={styles.icon}>{icons[weather.indexOf(hourData[2])]}</div>
             <div>{temp}°C</div>
         </div>
     )
