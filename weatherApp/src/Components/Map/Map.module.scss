@@ -1,14 +1,28 @@
-.container {
+.container-light {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
+}
+.container-dark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
 }
 
-.mapContainer {
-
+.mapContainer-light {
+  margin-top: 10px;
+}
+.mapContainer-dark {
+  margin-top: 10px;
 }
 
-.map {
+.map-light {
+  width: 512px;
+  height: 512px;
+}
+.map-dark {
   width: 512px;
   height: 512px;
 }

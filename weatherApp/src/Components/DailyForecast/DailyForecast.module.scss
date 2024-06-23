@@ -1,8 +1,17 @@
-.root {
-
+.root-light {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.root-dark {
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
-.hourlyForecast {
+.hourlyForecast-light {
+  display: flex;
+  flex-direction: row;
+}
+.hourlyForecast-dark {
   display: flex;
   flex-direction: row;
 }

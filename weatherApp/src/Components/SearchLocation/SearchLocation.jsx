@@ -1,6 +1,8 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import apiKey from "../../utils/key.jsx"
+import {ThemeContext} from "../../utils/ThemeContext.jsx";
+import styles from './SearchLocation.module.scss'
 
 const SearchLocation = ({weatherData, setWeatherData}) => {
 
@@ -11,9 +13,10 @@ const SearchLocation = ({weatherData, setWeatherData}) => {
             .then((data) => (setWeatherData(data)))
             .catch((err) => (console.log(err)))
     }, [])
+    const { theme, setTheme } = useContext(ThemeContext);
 
     return (
-        <div>Search Component</div>
+        <h2 className={theme === 'light' ? styles['text-light'] : styles['text-dark']}>Search Component</h2>
     )
 }
 

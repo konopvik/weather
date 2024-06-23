@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import axios from "axios";
 import apiKey from "../../utils/key.jsx";
 import styles from "./Map.module.scss"
+import {ThemeContext} from "../../utils/ThemeContext.jsx";
 
 // Fix Leaflet icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -15,6 +16,7 @@ L.Icon.Default.mergeOptions({
 });
 
 function Map({markers, setMarkers, setWeatherData}) {
+    const { theme, setTheme } = useContext(ThemeContext);
 
     const MapEvents = () => {
         useMapEvents({
@@ -31,10 +33,10 @@ function Map({markers, setMarkers, setWeatherData}) {
     };
 
     return (
-        <div className={styles.container}>
+        <div className={theme === 'light' ? styles['container-light'] : styles['container-dark']}>
             <h2>Also you can click on the map for selecting place in which you want to know weather forecast</h2>
-            <div className={styles.mapContainer}>
-        <MapContainer center={[51.505, -0.09]} zoom={5} className={styles.map}>
+            <div className={theme === 'light' ? styles['mapContainer-light'] : styles['mapContainer-dark']}>
+        <MapContainer center={[51.505, -0.09]} zoom={5} className={theme === 'light' ? styles['map-light'] : styles['map-dark']}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
