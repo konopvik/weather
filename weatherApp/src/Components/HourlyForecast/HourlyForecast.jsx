@@ -4,7 +4,7 @@ import {ThemeContext} from "../../utils/ThemeContext.jsx";
 
 const HourlyForecast = ({hourData}) => {
 
-    const time = hourData.datetime.split(":")
+    //const time = hourData.datetime.split(":")
     const icons = [
         "🌨️",
         "🌧️",
@@ -26,12 +26,12 @@ const HourlyForecast = ({hourData}) => {
         "partly-cloudy-night",
         "clear-day",
         "clear-night"]
-    const temp = Math.round(hourData.temp)
+    const temp = Math.round(hourData[1])
     const { theme, setTheme } = useContext(ThemeContext);
     return (
         <div className={theme === 'light' ? styles['root-light'] : styles['root-dark']}>
-            <div>{time[0]}:{time[1]}</div>
-            <div>{icons[weather.indexOf(hourData.icon)]}</div>
+            <div>{hourData[0]}:00</div>
+            <div>{icons[weather.indexOf(hourData[2])]}</div>
             <div>{temp}°C</div>
         </div>
     )
