@@ -1,3 +1,5 @@
+@import './../../utils/variables';
+
 .text-light {
   margin-left: 10px;
   margin-top: 10px;
@@ -5,4 +7,57 @@
 .text-dark {
   margin-left: 10px;
   margin-top: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.input-light {
+  width: 10%;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid $light-border;
+}
+.input-dark {
+  width: 10%;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid $dark-border;
+}
+
+.button-light {
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid $light-border;
+  background-color: $dark-background;
+  color: $dark-text;
+  cursor: pointer;
+}
+.button-dark {
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid $dark-border;
+  background-color: $light-background;
+  color: $light-text;
+  cursor: pointer;
+}
+
+.error-light {
+  margin-top: 10px;
+  color: red;
+}
+.error-dark {
+  margin-top: 10px;
+  color: red;
 }

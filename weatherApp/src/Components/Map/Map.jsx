@@ -36,7 +36,7 @@ function Map({markers, setMarkers, setWeatherData}) {
         <div className={theme === 'light' ? styles['container-light'] : styles['container-dark']}>
             <h2>Also you can click on the map for selecting place in which you want to know weather forecast</h2>
             <div className={theme === 'light' ? styles['mapContainer-light'] : styles['mapContainer-dark']}>
-        <MapContainer center={[51.505, -0.09]} zoom={5} className={theme === 'light' ? styles['map-light'] : styles['map-dark']}>
+        <MapContainer center={[49.3927, 15.5915]} zoom={6} className={theme === 'light' ? styles['map-light'] : styles['map-dark']}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

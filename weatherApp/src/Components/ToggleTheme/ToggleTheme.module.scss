@@ -15,7 +15,6 @@
   padding: 5px;
   margin: 10px;
   border-radius: 10px;
-  transition: 0.3s ease;
   cursor: pointer;
 }
 .button-dark {
@@ -28,11 +27,4 @@
   border-radius: 10px;
   transition: 0.3s ease;
   cursor: pointer;
-}
-
-.button-light:hover {
-  font-size: 20px;
-}
-.button-dark:hover {
-  font-size: 20px;
 }
