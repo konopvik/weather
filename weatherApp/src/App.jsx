@@ -5,6 +5,8 @@ import Map from "./Components/Map/Map.jsx";
 import styles from "./App.module.scss"
 import { ThemeContext } from "./utils/ThemeContext.jsx";
 import ToggleTheme from "./Components/ToggleTheme/ToggleTheme.jsx";
+import UVIndexWidget from "./Components/UVIndexWidget/UVIndexWidget.jsx";
+import WindSpeedWidget from "./Components/WindSpeedWidget/WindSpeedWidget.jsx";
 
 function App() {
     const { theme, setTheme } = useContext(ThemeContext);
@@ -22,6 +24,8 @@ console.log("weatherData from app.jsx", weatherData)
           <SearchLocation weatherData={weatherData} setWeatherData={setWeatherData}/>
           {Object.keys(weatherData).length === 0 ? "" : <DailyForecast weatherData={weatherData}/>}
           <Map markers={markers} setMarkers={setMarkers} setWeatherData={setWeatherData}/>
+          <UVIndexWidget weatherData={weatherData}/>
+          <WindSpeedWidget weatherData={weatherData}/>
       </div>
   )
 }

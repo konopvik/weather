@@ -1,0 +1,49 @@
+
+.uvWidget {
+  background-color: #3a3a3a;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.uvHeader {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.uvValue {
+  font-size: 48px;
+  margin: 10px 0;
+}
+
+.uvLevel {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.uvBar {
+  position: relative;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, green, yellow, orange, red, purple);
+  margin: 10px 0;
+}
+
+.uvIndicator {
+  position: absolute;
+  top: -3px;
+  width: 10px;
+  height: 16px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.uvProtection {
+  font-size: 12px;
+  opacity: 0.8;
+}

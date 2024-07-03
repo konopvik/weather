@@ -1,0 +1,75 @@
+
+.windWidget {
+  background-color: #a8c4d8;
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.windHeader {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.compass {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.compassDirection {
+  position: absolute;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.compassDirection:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.compassDirection:nth-child(2) {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.compassDirection:nth-child(3) {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.compassDirection:nth-child(4) {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.windArrow {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+}
+
+.windSpeed {
+  font-size: 24px;
+  margin-top: 10px;
+}

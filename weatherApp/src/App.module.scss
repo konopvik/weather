@@ -10,12 +10,15 @@
 }
 
 .header-light {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+
 }
 .header-dark {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
 }
 
 .headerH1-light {
@@ -28,8 +31,8 @@
 }
 
 .headerButton-light {
-
+  justify-self: end;
 }
 .headerButton-dark {
-
+  justify-self: end;
 }
