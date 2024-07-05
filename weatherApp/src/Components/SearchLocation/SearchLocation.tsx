@@ -1,8 +1,8 @@
 import {useContext, useEffect, useState} from "react";
 import { useForm } from "react-hook-form"
 import axios from "axios";
-import apiKey from "../../utils/key.jsx"
-import {ThemeContext} from "../../utils/ThemeContext.jsx";
+import apiKey from "../../utils/key.tsx"
+import {ThemeContext} from "../../utils/ThemeContext.tsx";
 import styles from './SearchLocation.module.scss'
 
 const SearchLocation = ({weatherData, setWeatherData}) => {

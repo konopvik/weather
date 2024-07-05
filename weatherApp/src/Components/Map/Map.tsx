@@ -3,9 +3,9 @@ import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import axios from "axios";
-import apiKey from "../../utils/key.jsx";
+import apiKey from "../../utils/key.tsx";
 import styles from "./Map.module.scss"
-import {ThemeContext} from "../../utils/ThemeContext.jsx";
+import {ThemeContext} from "../../utils/ThemeContext.tsx";
 
 // Fix Leaflet icon issue
 delete L.Icon.Default.prototype._getIconUrl;

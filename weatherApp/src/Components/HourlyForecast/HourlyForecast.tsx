@@ -1,6 +1,6 @@
 import styles from "./HourlyForecast.module.scss"
 import {useContext} from "react";
-import {ThemeContext} from "../../utils/ThemeContext.jsx";
+import {ThemeContext} from "../../utils/ThemeContext.tsx";
 
 const HourlyForecast = ({hourData}) => {
 

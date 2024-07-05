@@ -1,6 +1,6 @@
 import styles from "./ToggleTheme.module.scss"
 import {useContext} from "react";
-import {ThemeContext} from "../../utils/ThemeContext.jsx";
+import {ThemeContext} from "../../utils/ThemeContext.tsx";
 
 const ToggleTheme = () => {
     const { theme, setTheme } = useContext(ThemeContext);
