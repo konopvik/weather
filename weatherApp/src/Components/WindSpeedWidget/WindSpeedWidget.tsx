@@ -1,13 +1,17 @@
 import React from 'react';
 import styles from './WindSpeedWidget.module.scss';
+import {IWeatherDataAPI} from "../../utils/InterfaceAPI";
 
-const WindSpeedWidget = ({ weatherData }) => {
+interface IProps {
+    weatherData: IWeatherDataAPI
+}
+const WindSpeedWidget = ({ weatherData }: IProps) => {
     if (!weatherData || !weatherData.data || !weatherData.data.currentConditions) {
         return <div>Loading...</div>;
     }
 
-    const windSpeed = weatherData.data.currentConditions.windspeed;
-    const windDirection = weatherData.data.currentConditions.winddir; // Assuming direction is in degrees
+    const windSpeed: number = weatherData.data.currentConditions.windspeed;
+    const windDirection: number = weatherData.data.currentConditions.winddir;
 
     return (
         <div className={styles.windWidget}>

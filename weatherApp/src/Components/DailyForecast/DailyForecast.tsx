@@ -2,12 +2,14 @@ import HourlyForecast from "../HourlyForecast/HourlyForecast.tsx";
 import styles from "./DailyForecast.module.scss"
 import {useContext} from "react";
 import {ThemeContext} from "../../utils/ThemeContext.tsx";
+import {IWeatherDataAPI} from "../../utils/InterfaceAPI";
 
-const DailyForecast = ({weatherData}) => {
+interface IProps {
+    weatherData: IWeatherDataAPI
+}
+
+const DailyForecast = ({weatherData}: IProps) => {
     const {theme, setTheme} = useContext(ThemeContext);
-
-
-
 
         const currentTime = weatherData.data.currentConditions.datetime.split(":");
         const twoDays = weatherData.data.days.slice(0, 2)

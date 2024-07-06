@@ -1,24 +1,34 @@
 import {useContext, useEffect, useState} from "react";
-import { useForm } from "react-hook-form"
+import {SubmitHandler, useForm} from "react-hook-form"
 import axios from "axios";
 import apiKey from "../../utils/key.tsx"
 import {ThemeContext} from "../../utils/ThemeContext.tsx";
 import styles from './SearchLocation.module.scss'
+import {IWeatherDataAPI} from "../../utils/InterfaceAPI";
 
-const SearchLocation = ({weatherData, setWeatherData}) => {
+type FormValues = {
+    city: string
+}
 
-    const [axiosError, setAxiosError] = useState(null);
-    const { theme, setTheme } = useContext(ThemeContext);
-    const { register, handleSubmit,formState: { errors } } = useForm()
+interface IProps {
+    weatherData: IWeatherDataAPI;
+    setWeatherData: (data: IWeatherDataAPI) => void
+}
 
-    const axiosThen = (data) => {
+const SearchLocation = ({weatherData, setWeatherData}: IProps) => {
+
+    const [axiosError, setAxiosError] = useState<string | null>(null);
+    const {theme, setTheme } = useContext(ThemeContext);
+    const { register, handleSubmit, formState: { errors } } = useForm<FormValues>()
+
+    const axiosThen = (data: IWeatherDataAPI) => {
         setWeatherData(data);
         setAxiosError(null);
     }
 
-    const onSubmitClick = (formData) => {
+    const onSubmitClick: SubmitHandler<FormValues> = (formData) => {
         axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${formData.city}?unitGroup=metric&key=${apiKey}`)
-            .then((data) => (axiosThen(data)))
+            .then((data: IWeatherDataAPI) => (axiosThen(data)))
             .catch((err) => {
                 if (err.response.status === 400 && err.response.data === "Bad API Request:Invalid location parameter value.")
                 setAxiosError("Invalid location parameter value.")

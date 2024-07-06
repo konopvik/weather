@@ -1,6 +1,11 @@
 import styles from "./UVIndexWidget.module.scss"
-const UVIndexWidget = ({ weatherData }) => {
-    const getUVLevelInfo = (uvIndex) => {
+import {IWeatherDataAPI} from "../../utils/InterfaceAPI";
+
+interface IProps {
+    weatherData: IWeatherDataAPI
+}
+const UVIndexWidget = ({ weatherData }: IProps) => {
+    const getUVLevelInfo = (uvIndex: number): string => {
         if (uvIndex <= 2) {
             return 'LOW';
         } else if (uvIndex <= 5) {
@@ -18,8 +23,8 @@ const UVIndexWidget = ({ weatherData }) => {
         return <div>Loading...</div>;
     }
 
-    const uvIndex = weatherData.data.currentConditions.uvindex;
-    const uvLevel = getUVLevelInfo(uvIndex)
+    const uvIndex: number = weatherData.data.currentConditions.uvindex;
+    const uvLevel: string = getUVLevelInfo(uvIndex)
 
     return (
         <div className={styles.uvWidget}>
