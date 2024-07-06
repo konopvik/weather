@@ -2,7 +2,7 @@ import HourlyForecast from "../HourlyForecast/HourlyForecast.tsx";
 import styles from "./DailyForecast.module.scss"
 import {useContext} from "react";
 import {ThemeContext} from "../../utils/ThemeContext.tsx";
-import {IWeatherDataAPI} from "../../utils/InterfaceAPI";
+import {IDay, IWeatherDataAPI} from "../../utils/InterfaceAPI";
 
 interface IProps {
     weatherData: IWeatherDataAPI
@@ -11,8 +11,8 @@ interface IProps {
 const DailyForecast = ({weatherData}: IProps) => {
     const {theme, setTheme} = useContext(ThemeContext);
 
-        const currentTime = weatherData.data.currentConditions.datetime.split(":");
-        const twoDays = weatherData.data.days.slice(0, 2)
+        const currentTime: string[] = weatherData.data.currentConditions.datetime.split(":");
+        const twoDays: IDay[] = weatherData.data.days.slice(0, 2)
         const hoursOfTwoDays = []
         for (let i = 0; i < 2; i++) {
             for (let j = 0; j < 24; j++) {
@@ -29,16 +29,16 @@ const DailyForecast = ({weatherData}: IProps) => {
             formattedHoursOfTwoDays.push([hour, temp, icon]);
         }
 
-        const startIndex = formattedHoursOfTwoDays.findIndex(item => item[0] === currentTime[0]);
+        const startIndex: number = formattedHoursOfTwoDays.findIndex(item => item[0] === currentTime[0]);
 
-        const result = formattedHoursOfTwoDays.slice(startIndex, startIndex + 24);
+        const result: number[] = formattedHoursOfTwoDays.slice(startIndex, startIndex + 24);
 
         return (
                 <div className={theme === 'light' ? styles['root-light'] : styles['root-dark']}>
                     <h3>Daily Forecast in {weatherData.data.address} for the
                         day {weatherData.data.days[0].datetime}</h3>
                     <div className={theme === 'light' ? styles['hourlyForecast-light'] : styles['hourlyForecast-dark']}>
-                        {result.map((hour) => {
+                        {result.map((hour: number) => {
                             return <HourlyForecast hourData={hour}/>
                         })}
                     </div>

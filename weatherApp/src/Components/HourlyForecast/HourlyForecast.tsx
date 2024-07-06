@@ -2,7 +2,12 @@ import styles from "./HourlyForecast.module.scss"
 import {useContext} from "react";
 import {ThemeContext} from "../../utils/ThemeContext.tsx";
 
-const HourlyForecast = ({hourData}) => {
+interface IProps {
+    hourData: number
+}
+
+
+const HourlyForecast = ({hourData}: IProps) => {
 
     //const time = hourData.datetime.split(":")
     const icons = [
@@ -26,7 +31,7 @@ const HourlyForecast = ({hourData}) => {
         "partly-cloudy-night",
         "clear-day",
         "clear-night"]
-    const temp = Math.round(hourData[1])
+    const temp: number = Math.round(hourData[1])
     const { theme, setTheme } = useContext(ThemeContext);
     return (
         <div className={theme === 'light' ? styles['root-light'] : styles['root-dark']}>

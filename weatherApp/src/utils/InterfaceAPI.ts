@@ -54,7 +54,7 @@ interface ICurrentConditions {
     windspeed: number | null;
 }
 
-interface IDay {
+export interface IDay {
     cloudcover: number | null;
     conditions: string | null;
     datetime: string | null;

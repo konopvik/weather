@@ -6,8 +6,8 @@ import axios from "axios";
 import apiKey from "../../utils/key.tsx";
 import styles from "./Map.module.scss"
 import {ThemeContext} from "../../utils/ThemeContext.tsx";
+import {IWeatherDataAPI} from "../../utils/InterfaceAPI";
 
-// Fix Leaflet icon issue
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
     iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
@@ -15,7 +15,18 @@ L.Icon.Default.mergeOptions({
     shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
 });
 
-function Map({markers, setMarkers, setWeatherData}) {
+interface MarkerType {
+    lat: number;
+    lng: number;
+}
+
+interface MapProps {
+    markers: MarkerType;
+    setMarkers: (data: MarkerType) => void;
+    setWeatherData: (data: IWeatherDataAPI) => void;
+}
+
+function Map({markers, setMarkers, setWeatherData}: MapProps) {
     const { theme, setTheme } = useContext(ThemeContext);
 
     const MapEvents = () => {
