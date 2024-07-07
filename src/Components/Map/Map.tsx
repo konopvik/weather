@@ -8,35 +8,29 @@ import styles from "./Map.module.scss"
 import {ThemeContext} from "../../utils/ThemeContext.tsx";
 import {IWeatherDataAPI} from "../../utils/InterfaceAPI";
 
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
-    iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-});
 
-interface MarkerType {
+export interface MarkerType {
     lat: number;
     lng: number;
 }
 
 interface MapProps {
-    markers: MarkerType;
-    setMarkers: (data: MarkerType) => void;
+    markers: MarkerType[];
+    setNewMarker: (data: MarkerType) => void;
     setWeatherData: (data: IWeatherDataAPI) => void;
 }
 
-function Map({markers, setMarkers, setWeatherData}: MapProps) {
+function Map({markers, setNewMarker, setWeatherData}: MapProps) {
     const { theme, setTheme } = useContext(ThemeContext);
 
     const MapEvents = () => {
         useMapEvents({
             click(e) {
                 const { lat, lng } = e.latlng;
-                setMarkers((current) => [...current, { lat, lng }]);
+                setNewMarker(e.latlng)
                 console.log(`Latitude: ${lat}, Longitude: ${lng}`);
                 axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lng}?unitGroup=metric&key=${apiKey}`)
-                    .then((data) => (setWeatherData(data)))
+                    .then((data: IWeatherDataAPI) => (setWeatherData(data)))
                     .catch((err) => (console.log(err)))
             },
         });
